@@ -1,28 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Lightning Out with LWC</title>
-    <!-- Include the Lightning Out JavaScript library -->
-    <script src="https://playful-wolf-ld76wi-dev-ed.trailblaze.my.salesforce.com/lightning/lightning.out.js"></script>
-    <script>
-        $Lightning.use("c:ExternalchatterApp", 
-            function() {
-                // Create and load the Aura component (Externalchatter) inside the div "lightningLocator"
-                $Lightning.createComponent(
-                    "c:Externalchatter",    // Aura component that might also contain LWC inside
-                    {},                     // No parameters required in this case
-                    "lightningLocator",     // The div where the component will be injected
-                    function(cmp) {
-                        console.log("Aura component is loaded.");
-                    }
-                );
-            },
-            'https://playful-wolf-ld76wi-dev-ed.trailblaze.my.salesforce.com'
-        );
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed Salesforce Component</title>
 </head>
 <body>
-    <h1>Embedding LWC in an External Website</h1>
-    <div id="lightning-container"></div> <!-- Container where LWC will be rendered -->
+    <h1>Embedding Salesforce Lightning Component in an Iframe</h1>
+    
+    <iframe src="https://playful-wolf-ld76wi-dev-ed.trailblaze.my.salesforce.com/c/ExternalchatterApp.app" 
+            width="100%" 
+            height="600" 
+            style="border: none;">
+    </iframe>
 </body>
 </html>
