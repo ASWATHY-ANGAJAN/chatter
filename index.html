@@ -8,10 +8,27 @@
 <body>
     <h1>Embedding Salesforce Lightning Component in an Iframe</h1>
     
-    <iframe src="https://playful-wolf-ld76wi-dev-ed.trailblaze.my.salesforce.com/c/ExternalchatterApp.app" 
-            width="100%" 
-            height="600" 
-            style="border: none;">
-    </iframe>
+   <script src="https://playful-wolf-ld76wi-dev-ed.trailblaze.my.salesforce.com/lightning/lightning.out.js"></script>
+
+    <!-- Div where the Aura/LWC component will be rendered -->
+    <div id="lightningLocator"></div>
+
+    <script>
+        $Lightning.use("c:ExternalchatterApp", 
+            function() {
+                // Create and load the Aura component (Externalchatter) inside the div "lightningLocator"
+                $Lightning.createComponent(
+                    "c:Externalchatter",    // Aura component to be loaded
+                    {},                     // Parameters for the component
+                    "lightningLocator",     // The div where the component will be injected
+                    function(cmp) {
+                        console.log("Aura component is loaded.");
+                    }
+                );
+            },
+            // Specify the Lightning Out App endpoint
+            'https://playful-wolf-ld76wi-dev-ed.trailblaze.my.salesforce.com'
+        );
+    </script>
 </body>
 </html>
